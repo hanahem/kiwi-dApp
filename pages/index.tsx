@@ -130,7 +130,7 @@ const IndexPage = () => {
   );
 
   return (
-    <div className={`w-1/2 flex flex-col items-center content-center m-auto text-center mt-20`}>
+    <div className={`w-full m-4 sm:m-0 sm:w-1/2 flex flex-col items-center content-center sm:m-auto text-center sm:mt-20`}>
       <Header accounts={accounts} onClickConnect={onClickConnect} onClickInstall={onClickInstall}/>
       {!accounts.length && <Connect init={init} onClickConnect={onClickConnect} onClickInstall={onClickInstall}/>}
       <Balance balance={balance} otherBalances={otherBalances}/>
