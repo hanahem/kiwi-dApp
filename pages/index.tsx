@@ -7,6 +7,7 @@ import Web3 from "web3";
 import MetaMaskOnboarding from "@metamask/onboarding";
 import {checkERC20Amount, promisify, usdcAdd, wbtcAdd} from '../utils/utils';
 import Connect from "../components/Wallet/elements/Connect";
+import {ethers} from "ethers";
 
 declare global {
   interface Window {
@@ -65,6 +66,30 @@ const IndexPage = () => {
       console.error(error);
     }
   };
+
+  // Connection framework with ethersJs
+  /*const onClickConnectEthers = async () => {
+    if (typeof window !== undefined) {
+
+      // A Web3Provider wraps a standard Web3 provider, which is
+      // what Metamask injects as window.ethereum into each page
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+      // The Metamask plugin also allows signing transactions to
+      // send ether and pay to change state within the blockchain.
+      // For this, you need the account signer...
+      const signer = provider.getSigner();
+      // signer.connect(provider);
+
+      // The Metamask plugin also allows signing transactions to
+      // send ether and pay to change state within the blockchain.
+      // For this, you need the account signer...
+      const address = await signer.getAddress();
+      const hexBalance = await signer.getBalance();
+      const balance = ethers.utils.formatEther(hexBalance);
+      console.log(address, balance);
+    }
+  };*/
 
   const getBalance = async () => {
     let address: any, wei, mmBalance;
